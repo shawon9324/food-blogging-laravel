@@ -13,7 +13,6 @@ Route::resource('dashboard/food', 'Admin\FoodController');
 
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
