@@ -19,8 +19,8 @@ class CreateFoodsTable extends Migration
             $table->text('description');
             $table->string('name');
             $table->double('price', 8, 2);
-            $table->string('image');
-            $table->tinyInteger('rating');
+            $table->string('image')->nullable();
+            $table->tinyInteger('rating')->nullable();
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('restaurant_id');
             $table->unsignedBigInteger('meal_id');

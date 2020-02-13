@@ -43,16 +43,30 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form role="form">
+                <form action="{{ route('restaurant.store') }}" method="post" novalidate="novalidate" enctype="multipart/form-data">
+                    @method('post') @csrf
                     <div class="card-body">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Restaurant Name </label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Restaurant Name">
+                            <span class="badge badge-success" style="float: right">{{ Session::get('success') }}</span>
+
+                            <input class="form-control" name="name" id="name" type="text" placeholder="Enter Restaurant Name" required="required" data-validation-required-message="Please enter your name.">
+                            <p class="help-block text-danger"></p>
+                            @if ($errors->has('name'))
+                            <span class="invalid-feedback" style="display: block;" role="alert">
+                                <strong>{{ $errors->first('name') }}</strong>
+                            </span> @endif
                         </div>
 
                         <div class="form-group">
                             <label>Location</label>
-                            <textarea class="form-control" rows="3" placeholder="Enter Location "></textarea>
+                            <textarea class="form-control" name="address" rows="3" id="address" type="text" placeholder="Enter Restaurant Name" required="required" data-validation-required-message="Please enter your name."></textarea>
+                            <p class="help-block text-danger"></p>
+                            @if ($errors->has('address'))
+                            <span class="invalid-feedback" style="display: block;" role="alert">
+                                <strong>{{ $errors->first('address') }}</strong>
+                            </span> @endif
+                            
                         </div>
 
                     </div>

@@ -43,14 +43,31 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form role="form">
+                <form action="{{ route('meal.store') }}" method="post" novalidate="novalidate" enctype="multipart/form-data">
+                @method('post') @csrf
                     <div class="card-body">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Meal Type </label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Meal Type">
+                            <span class="badge badge-success" style="float: right">{{ Session::get('success') }}</span>
+
+                            <input class="form-control" name="type" id="type" type="text" placeholder="Enter Meal Type" required="required" data-validation-required-message="Please enter your name.">
+                            <p class="help-block text-danger"></p>
+                            @if ($errors->has('type'))
+                            <span class="invalid-feedback" style="display: block;" role="alert">
+                                <strong>{{ $errors->first('type') }}</strong>
+                            </span> @endif
+
+
 
                             <label for="exampleInputEmail1">Availablity Time</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Availablity Time Type">
+                            
+
+                            <input class="form-control" name="availablity_time" id="availablity_time" type="text" placeholder="Enter Availablity Time" required="required" data-validation-required-message="Please enter your name.">
+                            <p class="help-block text-danger"></p>
+                            @if ($errors->has('availablity_time'))
+                            <span class="invalid-feedback" style="display: block;" role="alert">
+                                <strong>{{ $errors->first('availablity_time') }}</strong>
+                            </span> @endif
 
 
                         </div>

@@ -48,11 +48,18 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <form role="form">
+                                <form action="{{ route('food.store') }}" method="post" novalidate="novalidate" enctype="multipart/form-data">
+                                    @method('post') @csrf
                                     <div class="card-body">
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Tile</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Title ...">
+                                            <label for="exampleInputEmail1">Title</label>
+                                            <span class="badge badge-success" style="float: right">{{ Session::get('success') }}</span>
+                                            <input class="form-control" name="title" id="title" type="text" placeholder="Enter Title " required="required" data-validation-required-message="Please enter your name.">
+                                            <p class="help-block text-danger"></p>
+                                            @if ($errors->has('title'))
+                                            <span class="invalid-feedback" style="display: block;" role="alert">
+                                                <strong>{{ $errors->first('title') }}</strong>
+                                            </span> @endif
                                         </div>
 
                                     </div>
@@ -60,44 +67,47 @@
                                         <div class="card-body">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Food Name</label>
-                                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Food  Name ...">
+                                                <input class="form-control" name="name" id="name" type="text" placeholder="Enter Title " required="required" data-validation-required-message="Please enter your name.">
+                                                <p class="help-block text-danger"></p>
+                                                @if ($errors->has('name'))
+                                                <span class="invalid-feedback" style="display: block;" role="alert">
+                                                    <strong>{{ $errors->first('name') }}</strong>
+                                                </span> @endif
                                             </div>
 
                                         </div>
                                         <div class="card-body" data-select2-id="44">
                                             <label>Category</label>
-                                            <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                           
+                                            <select name="category_id" id="category_id" class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
                                                 <option selected="selected" data-select2-id="3">Category</option>
-                                                <option data-select2-id="45">Alaska</option>
-                                                <option data-select2-id="46">California</option>
-                                                <option data-select2-id="47">Delaware</option>
-                                                <option data-select2-id="48">Tennessee</option>
-                                                <option data-select2-id="49">Texas</option>
-                                                <option data-select2-id="50">Washington</option>
+                                                @foreach($categories as $category)
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
+
+
+
+
+
                                         <div class="card-body" data-select2-id="44">
                                             <label>Meal Type</label>
-                                            <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                            <select name="meal_id" id="meal_id" class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
                                                 <option selected="selected" data-select2-id="3">Meal Type</option>
-                                                <option data-select2-id="45">Alaska</option>
-                                                <option data-select2-id="46">California</option>
-                                                <option data-select2-id="47">Delaware</option>
-                                                <option data-select2-id="48">Tennessee</option>
-                                                <option data-select2-id="49">Texas</option>
-                                                <option data-select2-id="50">Washington</option>
+                                                @foreach($meals as $meal)
+                                                <option value="{{ $meal->id }}">{{ $meal->type }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                         <div class="card-body" data-select2-id="44">
                                             <label>Restaurant Name</label>
-                                            <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                            <select name="restaurant_id" id="restaurant_id" class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
                                                 <option selected="selected" data-select2-id="3">Restaurant Name</option>
-                                                <option data-select2-id="45">Alaska</option>
-                                                <option data-select2-id="46">California</option>
-                                                <option data-select2-id="47">Delaware</option>
-                                                <option data-select2-id="48">Tennessee</option>
-                                                <option data-select2-id="49">Texas</option>
-                                                <option data-select2-id="50">Washington</option>
+                                                @foreach($restaurants as $restaurant)
+                                                <option value="{{ $restaurant->id }}">{{ $restaurant->name }}</option>
+                                                @endforeach
+
                                             </select>
                                         </div>
                                         <div class="card-body" data-select2-id="44">
@@ -106,7 +116,12 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text">&#2547;</span>
                                                 </div>
-                                                <input type="text" class="form-control">
+                                                <input class="form-control" name="price" id="price" type="text" placeholder="Enter Title " required="required" data-validation-required-message="Please enter your name.">
+                                                <p class="help-block text-danger"></p>
+                                                @if ($errors->has('price'))
+                                                <span class="invalid-feedback" style="display: block;" role="alert">
+                                                    <strong>{{ $errors->first('price') }}</strong>
+                                                </span> @endif
                                                 <div class="input-group-append">
                                                     <span class="input-group-text">.00</span>
                                                 </div>
@@ -115,7 +130,12 @@
                                         <div class="card-body">
                                             <div class="form-group">
                                                 <label>Description</label>
-                                                <textarea class="form-control" rows="20" placeholder="Description About food ..."></textarea>
+                                                <textarea class="form-control" name="description" id="description" type="text" placeholder="Enter Title " required="required" data-validation-required-message="Please enter your name."></textarea>
+                                                <p class="help-block text-danger"></p>
+                                                @if ($errors->has('description'))
+                                                <span class="invalid-feedback" style="display: block;" role="alert">
+                                                    <strong>{{ $errors->first('description') }}</strong>
+                                                </span> @endif
                                             </div>
 
                                         </div>
