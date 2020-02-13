@@ -11,7 +11,11 @@ class CategoryController extends Controller
     
     public function index()
     {
-        return view('admin.dashboard.view.view_category');
+        $data =[
+            
+            'categories' => Category::all()
+        ];
+        return view('admin.dashboard.view.view_category')->with($data);
         
     }
 
