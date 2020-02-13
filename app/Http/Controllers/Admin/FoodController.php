@@ -44,6 +44,7 @@ class FoodController extends Controller
             'restaurant_id' => 'required',
             'meal_id' => 'required',
         ]);
+        
 
         Food::create($request->all());
         return redirect()->route('food.create')
@@ -69,4 +70,6 @@ class FoodController extends Controller
     public function destroy($id)
     {
     }
+
+    
 }

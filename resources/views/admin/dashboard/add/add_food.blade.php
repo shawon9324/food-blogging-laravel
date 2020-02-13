@@ -78,7 +78,7 @@
                                         </div>
                                         <div class="card-body" data-select2-id="44">
                                             <label>Category</label>
-                                           
+
                                             <select name="category_id" id="category_id" class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
                                                 <option selected="selected" data-select2-id="3">Category</option>
                                                 @foreach($categories as $category)
@@ -146,24 +146,34 @@
 
                                                     <div class="input-group">
                                                         <div class="custom-file">
-                                                            <input type="file" class="custom-file-input" id="exampleInputFile">
-                                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                                        </div>
 
+                                                
+
+
+                                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                                            <input class="custom-file-input" name="image" id="image" type="file" required="required" data-validation-required-message="Please enter your name.">
+                                                            <p class="help-block text-danger"></p>
+                                                        </div>
+                                                        @if ($errors->has('image'))
+                                                        <span class="invalid-feedback" style="display: block;" role="alert">
+                                                            <strong>{{ $errors->first('image') }}</strong>
+                                                        </span> @endif
                                                     </div>
+
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card-footer">
-                                            <button type="submit" class="btn btn-primary">Submit</button>
-                                        </div>
-                                    </form>
                             </div>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
         </div>
-        </section>
+    </div>
+    </section>
     </div>
 
 
