@@ -3,11 +3,11 @@
 
 
 
-Route::get('/admin/dashboard', 'Admin\DashboardController@index');
+Route::get('dashboard', 'Admin\DashboardController@index');
 
 
-Route::resource('admin/dashboard/category', 'Admin\CategoryController');
-
+Route::resource('dashboard/category', 'Admin\CategoryController');
+Route::resource('dashboard/food', 'Admin\FoodController');
 
 
 

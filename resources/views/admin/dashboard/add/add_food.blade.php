@@ -42,14 +42,6 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-9">
-
-
-
-
-
-
-
-
                             <div class="card card-primary">
                                 <div class="card-header">
                                     <h3 class="card-title">Add New Food</h3>
@@ -112,7 +104,7 @@
                                             <label>Price</label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text">$</span>
+                                                    <span class="input-group-text">&#2547;</span>
                                                 </div>
                                                 <input type="text" class="form-control">
                                                 <div class="input-group-append">
