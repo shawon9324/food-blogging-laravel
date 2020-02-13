@@ -52,7 +52,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="pages/charts/chartjs.html" class="nav-link">
+                  <a href="http://127.0.0.1:8000/admin/dashboard/category/create" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Category</p>
                   </a>
@@ -89,7 +89,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="pages/charts/chartjs.html" class="nav-link">
+                  <a href="http://127.0.0.1:8000/admin/dashboard/category" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Category</p>
                   </a>

@@ -37,85 +37,11 @@
         <div class="content-wrapper">
             @include('layout.back.navlink')
 
-            <div class="card card-primary">
-                <div class="card-header">
-                    <h3 class="card-title">ADD FOOD</h3>
-                </div>
-                <!-- /.card-header -->
-                <!-- form start -->
-                <form role="form">
-                    <div class="card-body">
 
-                        <div class="form-group">
-                            <label>Title</label>
-                            <input type="text" class="form-control" placeholder="Enter Review Title">
-                        </div>
-                        <div class="form-group">
-                            <label>Food Name</label>
-                            <input type="text" class="form-control" placeholder="Enter Food Name">
-                        </div>
-
-                        
-
-                        
-
-                        <div class="form-group">
-                            <label>Price</label>
-                            <input type="text" class="form-control" placeholder="Enter Price">
-                        </div>
-
-
-
-                        <div class="form-group">
-                            <label>Rating</label>
-                            <select class="form-control select2 select2-danger select2-hidden-accessible" data-dropdown-css-class="select2-danger" style="width: 100%;" data-select2-id="12" tabindex="-1" aria-hidden="true">
-                                <option selected="selected" data-select2-id="14">10</option>
-                                <option data-select2-id="83">9</option>
-                                <option data-select2-id="83">9</option>
-                                <option data-select2-id="84">8</option>
-                                <option data-select2-id="85">7</option>
-                                <option data-select2-id="86">6</option>
-                                <option data-select2-id="87">5</option>
-                                <option data-select2-id="88">4</option>
-                                <option data-select2-id="88">3</option>
-                                <option data-select2-id="88">2</option>
-                                <option data-select2-id="88">1</option>
-                                <option data-select2-id="88">0</option>
-                            </select>
-                        </div>
-
-
-                        <div class="form-group">
-                            <label>Description</label>
-                            <textarea class="form-control" rows="3" placeholder="Enter Your Review Description "></textarea>
-                        </div>
-
-
-                        <label for="exampleInputFile">Image Upload</label>
-                        <div class="input-group">
-                            <div class="custom-file">
-
-
-
-                                <input type="file" class="custom-file-input" id="exampleInputFile">
-                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                            </div>
-                            <div class="input-group-append">
-                                <span class="input-group-text" id="">Upload</span>
-                            </div>
-                        </div>
-
-                    </div>
-                    <!-- /.card-body -->
-
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
-            </div>
-            <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-9">
 
 
 
@@ -123,20 +49,127 @@
 
 
 
-                </div><!-- /.container-fluid -->
-            </section>
-            <!-- /.content -->
+
+                            <div class="card card-primary">
+                                <div class="card-header">
+                                    <h3 class="card-title">Add New Food</h3>
+                                </div>
+                                <!-- /.card-header -->
+                                <!-- form start -->
+                                <form role="form">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Tile</label>
+                                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Title ...">
+                                        </div>
+
+                                    </div>
+                                    <form role="form">
+                                        <div class="card-body">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Food Name</label>
+                                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Food  Name ...">
+                                            </div>
+
+                                        </div>
+                                        <div class="card-body" data-select2-id="44">
+                                            <label>Category</label>
+                                            <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                                <option selected="selected" data-select2-id="3">Category</option>
+                                                <option data-select2-id="45">Alaska</option>
+                                                <option data-select2-id="46">California</option>
+                                                <option data-select2-id="47">Delaware</option>
+                                                <option data-select2-id="48">Tennessee</option>
+                                                <option data-select2-id="49">Texas</option>
+                                                <option data-select2-id="50">Washington</option>
+                                            </select>
+                                        </div>
+                                        <div class="card-body" data-select2-id="44">
+                                            <label>Meal Type</label>
+                                            <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                                <option selected="selected" data-select2-id="3">Meal Type</option>
+                                                <option data-select2-id="45">Alaska</option>
+                                                <option data-select2-id="46">California</option>
+                                                <option data-select2-id="47">Delaware</option>
+                                                <option data-select2-id="48">Tennessee</option>
+                                                <option data-select2-id="49">Texas</option>
+                                                <option data-select2-id="50">Washington</option>
+                                            </select>
+                                        </div>
+                                        <div class="card-body" data-select2-id="44">
+                                            <label>Restaurant Name</label>
+                                            <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                                <option selected="selected" data-select2-id="3">Restaurant Name</option>
+                                                <option data-select2-id="45">Alaska</option>
+                                                <option data-select2-id="46">California</option>
+                                                <option data-select2-id="47">Delaware</option>
+                                                <option data-select2-id="48">Tennessee</option>
+                                                <option data-select2-id="49">Texas</option>
+                                                <option data-select2-id="50">Washington</option>
+                                            </select>
+                                        </div>
+                                        <div class="card-body" data-select2-id="44">
+                                            <label>Price</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">$</span>
+                                                </div>
+                                                <input type="text" class="form-control">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text">.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="form-group">
+                                                <label>Description</label>
+                                                <textarea class="form-control" rows="20" placeholder="Description About food ..."></textarea>
+                                            </div>
+
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="form-group">
+                                                <label>Food Image</label>
+                                                <div class="form-group">
+
+                                                    <div class="input-group">
+                                                        <div class="custom-file">
+                                                            <input type="file" class="custom-file-input" id="exampleInputFile">
+                                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </div>
+        </section>
+    </div>
 
 
-        @include('layout.back.footer')
+
+    <section class="content">
+        <div class="container-fluid">
+        </div>
+    </section>
+    </div>
+
+    @include('layout.back.footer')
 
 
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
 
