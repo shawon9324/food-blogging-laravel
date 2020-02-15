@@ -150,7 +150,7 @@
                                                 
 
 
-                                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                                            <label class="custom-file-label" for="image">Choose file</label>
                                                             <input class="custom-file-input" name="image" id="image" type="file" required="required" data-validation-required-message="Please enter your name.">
                                                             <p class="help-block text-danger"></p>
                                                         </div>

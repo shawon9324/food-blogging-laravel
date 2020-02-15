@@ -119,6 +119,25 @@
                         </div>
                         <!-- /.card -->
                     </div>
+
+
+                    <div class="col-md-4 col-md-offset-4">
+                        <div class="card" style="width: 29rem;">
+                            
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+
+                                @if($food->image)
+                                
+                                <div class="row">
+                                    <div class="col-12"><img src="{{asset('storage/'.$food->image)}}" alt="" class="img-thumbnail"></div>
+                                </div>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
             </div>
