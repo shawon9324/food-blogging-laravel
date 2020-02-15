@@ -35,38 +35,81 @@
         @include('layout.back.navbar')
         @include('layout.back.sidebar')
         <div class="content-wrapper">
-            @include('layout.back.navlink')
+
+
+
+            <!-- /.header link -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0 text-dark">Dashboard</h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active">Dashboard</li>
+                            </ol>
+                        </div>
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.header link -->
+
+
+
+
 
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">UPDATE CATEGORY</h3>
+                    <h3 class="card-title">Update Restaurant</h3>
                 </div>
+                <!-- /.card-header -->
+
+
 
                 <!-- form start -->
-                <form action="{{ route('category.update',$category->id) }}" method="post" enctype="multipart/form-data">
-                    @method('PUT') @csrf
+                <form action="{{ route('restaurant.update',$restaurant->id) }}" method="post">
+                    @csrf
+                    <input type="hidden" name="_method" value="PATCH">
+
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Category Name </label>
-                            <span class="badge badge-success" style="float: right">{{ Session::get('success') }}</span>
-                            <input class="form-control" name="name" id="name" type="text" value="{{ $category->name }}" placeholder="Enter blog title" data-validation-required-message="Please enter your name.">
+                            <label for="exampleInputEmail1">Restaurant Name</label>
+                            <input class="form-control" name="name" id="name" type="text" value="{{ ucfirst($restaurant->name) }}">
                             <p class="help-block text-danger"></p>
-                            @if ($errors->has('name'))
-                            <span class="invalid-feedback" style="display: block;" role="alert">
-                                <strong>{{ $errors->first('name') }}</strong>
-                            </span> @endif
+
                         </div>
+
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Address</label>
+                            <input class="form-control" name="address" id="address" type="text" value="{{ ucfirst($restaurant->address )}}">
+                            <p class="help-block text-danger"></p>
+
+                        </div>
+
                     </div>
+                    <!-- /.card-body -->
+
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">UPDATE</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
                     </div>
                 </form>
             </div>
-             <!-- form end -->
+            <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
-                </div>
+
+
+
+
+
+
+
+                </div><!-- /.container-fluid -->
             </section>
+            <!-- /.content -->
         </div>
 
 

@@ -33,100 +33,76 @@
     <div class="wrapper">
 
         @include('layout.back.navbar')
-        <div class="content-wrapper"> 
         @include('layout.back.sidebar')
-        
-        <div class="card card-primary">
-                <div class="card-header">
-                    <h3 class="card-title">VIEW Restaurant</h3>
-                </div>
- 
-                <div class="row">
-                    <div class="col-9">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">LIST Restaurant</h3>
- 
-                                <div class="card-tools">
-                                    <div class="input-group input-group-sm" style="width: 150px;">
-                                        <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
- 
-                                        <div class="input-group-append">
-                                            <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card-body table-responsive p-0" style="height: 600px;">
-                                <table class="table table-head-fixed text-nowrap">
-                                    <thead>
-                                        
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                        <th>Restaurant_Id</th>
-                                        <th>Restaurant_name</th>
-                                        <th>Restaurant_Location</th>
-                                        <th>Action</th>
-                                    </tr>
-                                    <?php $id = 1; ?>
-                                        @foreach($restaurants as $restaurant)
-                                        <tr>
-                                            <td>{{ $id}}</td>
-                                            <td>{{ ucfirst($restaurant->name)}}</td>
-                                            <td>{{ ucfirst($restaurant->address)}}</td>
-                                            <td>
-                                            <a class="btn btn-primary " href="{{ route('restaurant.show', $restaurant->id) }}">  
-                                                    View</a>
+        <div class="content-wrapper">
 
 
-                                                <a class="btn btn-success " href="{{ route('restaurant.edit', $restaurant->id) }}">  
-                                                    Edit</a>
-                                                
 
-                                                <form action="{{ route('restaurant.destroy', $restaurant->id) }}" method="POST" style="display: inline-block;">
-                                                @csrf
-                                                <input type="hidden" name="_method" value="DELETE">
-                                                <button type="submit" class="btn btn-outline-danger"onclick="return confirm('Are you sure want to delete this Restaurant?');"><i class="glyphicon glyphicon-trash"></i>
-                                                <i class="fas fa-trash">
-                                                </i>
-                                                Delete
-        
-    
-                                        </button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                        <?php $id++ ?>
-                                        @endforeach
- 
- 
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.card-body -->
+            <!-- /.header link -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0 text-dark">Dashboard</h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active">Dashboard</li>
+                            </ol>
                         </div>
-                        <!-- /.card -->
-                    </div>
-                </div>
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
             </div>
+            <!-- /.header link -->
+
+
+
+
+
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">ADD CATEGORY</h3>
+                </div>
+                <!-- /.card-header -->
+
+
+
+                <!-- form start -->
+               <form action="{{ route('category.update',$category->id) }}" method="post">
+               @csrf
+    <input type="hidden" name="_method" value="PATCH">
+   
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Category Name</label>
+                            <input class="form-control" name="name" id="name" type="text" value="{{ ucfirst($category->name) }}"  >
+                            <p class="help-block text-danger"></p>
+                            
+                        </div>
+
+                    </div>
+                    <!-- /.card-body -->
+
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
+                </form>
             </div>
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
- 
- 
- 
- 
- 
- 
- 
+
+
+
+
+
+
+
                 </div><!-- /.container-fluid -->
-                </div>
             </section>
             <!-- /.content -->
-        
+        </div>
 
 
         @include('layout.back.footer')

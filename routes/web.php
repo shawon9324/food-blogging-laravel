@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Routing\Route;
+
+
 
 Route::get('dashboard', 'Admin\DashboardController@index');
 
@@ -11,9 +12,14 @@ Route::resource('dashboard/food', 'Admin\FoodController');
 Route::resource('dashboard/restaurant', 'Admin\RestaurantController');
 
 
+Route::get('/', 'Web\HomeController@index');
+
+
+
 
 
 Auth::routes();
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();

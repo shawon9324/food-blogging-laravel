@@ -69,29 +69,49 @@
                                             <th>Category_name</th>
                                             <th>Action</th>
                                         </tr>
+                                        <?php $id = 1; ?>
                                         @foreach($categories as $category)
                                         <tr>
-                                            <td>{{ $category->id}}</td>
-                                            <td>{{ $category->name}}</td>
+                                            <td>{{ $id}}</td>
+                                            <td>{{ ucfirst($category->name)}}</td>
                                             <td>
-                                                <a class="btn btn-primary btn-sm" href="#">
-                                                    <i class="fas fa-folder">
-                                                    </i>
-                                                    View
-                                                </a>
-                                                <a class="btn btn-info btn-sm" href="{{ route('category.edit',$category->id) }}">
-                                                    <i class="fas fa-pencil-alt">
-                                                    </i>
-                                                    Edit
-                                                </a>
-                                                <a class="btn btn-danger btn-sm" href="#">
-                                                    <i class="fas fa-trash">
-                                                    </i>
-                                                    Delete
-                                                </a>
+                                            <a class="btn btn-primary " href="{{ route('category.show', $category->id) }}">  
+                                                    View</a>
+
+
+                                                <a class="btn btn-success " href="{{ route('category.edit', $category->id) }}">  
+                                                    Edit</a>
+                                                
+
+                                                <form action="{{ route('category.destroy', $category->id) }}" method="POST" style="display: inline-block;">
+                                                @csrf
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <button type="submit" class="btn btn-outline-danger"onclick="return confirm('Are you sure want to delete this post?');"><i class="glyphicon glyphicon-trash"></i>
+                                                <i class="fas fa-trash">
+                                                </i>
+                                                Delete
+        
+    
+                                        </button>
+                                        </form>
+
+
+
+
+                                                
+
+
+
+
+
+
+
+
                                             </td>
                                         </tr>
+                                        <?php $id++ ?>
                                         @endforeach
+                                       
 
 
                                     </tbody>
