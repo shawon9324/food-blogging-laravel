@@ -12,7 +12,11 @@ class RestaurantController extends Controller
     public function index()
     {
 
-        return view('admin.dashboard.view.view_restaurant');
+        $data = [
+
+            'restaurants' => Restaurant::all()
+        ];
+        return view('admin.dashboard.view.view_restaurant')->with($data);
     }
 
     public function create()

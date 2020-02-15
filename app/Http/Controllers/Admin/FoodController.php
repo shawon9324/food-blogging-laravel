@@ -16,9 +16,12 @@ class FoodController extends Controller
     {
         $data = [
 
-            'foods' => Food::all()
-        ];
-        return view('admin.dashboard.view.view_food');
+            'foods' => Food::all(),
+            'categories'=> Category::all(),
+            'meals' => Meal::all(),
+            'restaurants' => Restaurant::all(),
+         ];
+        return view('admin.dashboard.view.view_food')->with($data);
     }
 
 

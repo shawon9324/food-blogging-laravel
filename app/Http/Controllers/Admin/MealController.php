@@ -11,8 +11,12 @@ class MealController extends Controller
     
     public function index()
     {
+        $data = [
 
-        return view('admin.dashboard.view.view_meal');
+            'meals' => Meal::all()
+        ];
+
+        return view('admin.dashboard.view.view_meal')->with($data);
     }
 
     

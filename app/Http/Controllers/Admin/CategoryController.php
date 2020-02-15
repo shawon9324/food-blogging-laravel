@@ -36,7 +36,7 @@ class CategoryController extends Controller
   
         Category::create($request->all());
         return redirect()->route('category.create')
-                        ->with('success','Blog created successfully.');
+                        ->with('success','Category created successfully.');
         
     }
 
@@ -44,12 +44,28 @@ class CategoryController extends Controller
     {
     }
 
-    public function edit($id)
+    public function edit(Category $category)
     {
+        //$data['categories'] =  Category::orderBy('id')->get();
+        
+        //$data['category'] = $id;
+        return view('admin.dashboard.update.update_category');
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request,Category $category)
     {
+
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+  
+        $category->update($request->all());
+  
+        return redirect()->route('category.index')
+                        ->with('success','Category updated successfully.');
+
+        
     }
 
     public function destroy($id)

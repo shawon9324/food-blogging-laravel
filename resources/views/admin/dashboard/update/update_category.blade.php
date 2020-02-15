@@ -33,103 +33,41 @@
     <div class="wrapper">
 
         @include('layout.back.navbar')
-        <div class="content-wrapper"> 
         @include('layout.back.sidebar')
-        
-        <div class="card card-primary">
+        <div class="content-wrapper">
+            @include('layout.back.navlink')
+
+            <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">VIEW MEAL</h3>
+                    <h3 class="card-title">UPDATE CATEGORY</h3>
                 </div>
- 
-                <div class="row">
-                    <div class="col-8">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">LIST MEAL</h3>
- 
-                                <div class="card-tools">
-                                    <div class="input-group input-group-sm" style="width: 150px;">
-                                        <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
- 
-                                        <div class="input-group-append">
-                                            <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card-body table-responsive p-0" style="height: 600px;">
-                                <table class="table table-head-fixed text-nowrap">
-                                    <thead>
-                                        
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                        <th>Meal_Id</th>
-                                        <th>Meal_Name</th>
-                                        <th>Action</th>
-                                    </tr>
-                                        @foreach($meals as $meal)
-                                        <tr>
-                                            <td>{{ $meal->id}}</td>
-                                            <td>{{ $meal->type}}</td>
-                                            <td>
-                                                <a class="btn btn-primary btn-sm" href="#">
-                                                    <i class="fas fa-folder">
-                                                    </i>
-                                                    View
-                                                </a>
-                                            <a class="btn btn-info btn-sm" href="#">
-                                                <i class="fas fa-pencil-alt">
-                                                </i>
-                                                Edit
-                                            </a>
-                                            <a class="btn btn-danger btn-sm" href="#">
-                                                <i class="fas fa-trash">
-                                                </i>
-                                                Delete
-                                            </a>
-                                            </td>
-                                        </tr>
-                                        @endforeach
- 
- 
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.card-body -->
-                        </div>
-                        
-                        <!-- /.card -->
-                    </div>
-                    <div class="col-md-4 col-md-offset-4">
-                        <div class="card" style="width: 29rem;">
-                            
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
+
+                <!-- form start -->
+                <form action="{{ route('category.update',$category->id) }}" method="post" enctype="multipart/form-data">
+                    @method('PUT') @csrf
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Category Name </label>
+                            <span class="badge badge-success" style="float: right">{{ Session::get('success') }}</span>
+                            <input class="form-control" name="name" id="name" type="text" value="{{ $category->name }}" placeholder="Enter blog title" data-validation-required-message="Please enter your name.">
+                            <p class="help-block text-danger"></p>
+                            @if ($errors->has('name'))
+                            <span class="invalid-feedback" style="display: block;" role="alert">
+                                <strong>{{ $errors->first('name') }}</strong>
+                            </span> @endif
                         </div>
                     </div>
-                </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">UPDATE</button>
+                    </div>
+                </form>
             </div>
-            </div>
-            <!-- Main content -->
+             <!-- form end -->
             <section class="content">
                 <div class="container-fluid">
- 
- 
- 
- 
- 
- 
- 
-                </div><!-- /.container-fluid -->
                 </div>
             </section>
-            <!-- /.content -->
-        
+        </div>
 
 
         @include('layout.back.footer')
